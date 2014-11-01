@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.8'
 
-gem 'exception_notification'
+gem 'exception_notification', '3.0.1'
 
 gem 'capistrano', '~> 2.13'
 gem 'open4',      '0.9.3'
@@ -11,6 +11,7 @@ gem 'version_fu', :github => 'jmckible/version_fu'
 gem 'devise'
 gem 'devise-encryptable'
 gem 'haml'
+gem 'therubyracer'
 
 group :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
@@ -57,7 +58,8 @@ group :assets do
   gem 'compass'
   gem 'compass-rails'
   gem 'sass-rails'
+  gem 'less-rails'
   gem 'coffee-rails'
 
-  gem 'twitter-bootstrap-rails', :github => 'seyhunak/twitter-bootstrap-rails'
+  gem 'twitter-bootstrap-rails', '2.2.8'
 end
