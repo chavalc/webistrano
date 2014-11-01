@@ -12,6 +12,7 @@ gem 'devise'
 gem 'devise-encryptable'
 gem 'haml'
 gem 'therubyracer'
+gem 'puma',  '~> 2.7.1'
 
 group :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
