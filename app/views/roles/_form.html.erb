@@ -53,3 +53,19 @@
   tick this if you do not want to update the <i>current</i> symlink
   </div>
 </p>
+
+<div class="control-group">
+  <%= form.label :foreground, class: "control-label" %>
+  <div class="controls">
+    <%= form.check_box :foreground %>
+    tick this for the foreground app servers
+  </div>
+</div>
+
+<div class="control-group">
+  <%= form.label :background, class: "control-label" %>
+  <div class="controls">
+    <%= form.check_box :background %>
+    tick this for the background app servers
+  </div>
+</div>

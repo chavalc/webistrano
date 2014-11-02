@@ -21,8 +21,14 @@ class Role < ActiveRecord::Base
   validates :no_symlink,
     :presence  => true,
     :inclusion => { :in => 0..1 }
+  validates :foreground,
+    :presence  => true,
+    :inclusion => { :in => 0..1 }
+  validates :background,
+    :presence  => true,
+    :inclusion => { :in => 0..1 }
   
-  attr_accessible :name, :primary, :host_id, :no_release, :no_symlink, :ssh_port, :custom_name
+  attr_accessible :name, :primary, :host_id, :no_release, :no_symlink, :ssh_port, :custom_name, :foreground, :background
   
   attr_accessor :custom_name
   
@@ -84,6 +90,34 @@ class Role < ActiveRecord::Base
     self.save!
   end
   
+  def foreground?
+    self.foreground.to_i == 1
+  end
+  
+  def set_as_foreground!
+    self.foreground = 1
+    self.save!
+  end
+  
+  def unset_as_foreground!
+    self.foreground = 0
+    self.save!
+  end
+  
+  def background?
+    self.background.to_i == 1
+  end
+  
+  def set_as_background!
+    self.background = 1
+    self.save!
+  end
+  
+  def unset_as_background!
+    self.background = 0
+    self.save!
+  end
+  
   # tells if this role had a successful setup
   def setup_done?
     deployed_at_least_once? && self.deployments.any?{|x| Deployment::SETUP_TASKS.include?(x.task) && x.success? }
@@ -127,6 +161,12 @@ class Role < ActiveRecord::Base
     end
     if self.no_symlink?
       role_attr[:no_symlink] = true
+    end
+    if self.foreground?
+      role_attr[:foreground] = true
+    end
+    if self.background?
+      role_attr[:background] = true
     end
     role_attr
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120803083647) do
+ActiveRecord::Schema.define(:version => 20141102141454) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -112,6 +112,8 @@ ActiveRecord::Schema.define(:version => 20120803083647) do
     t.integer  "ssh_port"
     t.integer  "no_symlink", :default => 0
     t.datetime "deleted_at"
+    t.integer  "foreground", :default => 0
+    t.integer  "background", :default => 0
   end
 
   create_table "stage_configurations", :force => true do |t|
