@@ -4,7 +4,7 @@ gem 'rails', '3.2.8'
 
 gem 'exception_notification', '3.0.1'
 
-gem 'capistrano', '~> 2.13'
+gem 'capistrano', '2.15.5'
 gem 'open4',      '0.9.3'
 gem 'syntax',     '1.0.0'
 gem 'version_fu', :github => 'jmckible/version_fu'
@@ -13,6 +13,7 @@ gem 'devise-encryptable'
 gem 'haml'
 gem 'therubyracer'
 gem 'puma',  '~> 2.7.1'
+gem 'eventmachine', '1.0.3'
 
 group :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
