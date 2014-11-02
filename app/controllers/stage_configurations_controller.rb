@@ -2,6 +2,7 @@ class StageConfigurationsController < ApplicationController
   respond_to :html, :xml, :json
   
   before_filter :load_stage
+  before_filter :ensure_admin, :only => [:new, :destroy, :create, :enable]
   
   # GET /project/1/stage/1/stage_configurations/1
   # GET /project/1/stage/1/stage_configurations/1.xml

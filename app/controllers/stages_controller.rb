@@ -2,6 +2,7 @@ class StagesController < ApplicationController
   respond_to :html, :xml, :json
 
   before_filter :load_project
+  before_filter :ensure_admin, :only => [:new, :destroy, :create, :enable]
 
   # GET /projects/1/stages.xml
   def index
