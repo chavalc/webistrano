@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141102141454) do
+ActiveRecord::Schema.define(:version => 20141102181803) do
 
   create_table "activities", :force => true do |t|
     t.integer  "user_id"
@@ -25,13 +25,13 @@ ActiveRecord::Schema.define(:version => 20141102141454) do
 
   create_table "configuration_parameters", :force => true do |t|
     t.string   "name"
-    t.string   "value"
+    t.text     "value",            :limit => 16777215
     t.integer  "project_id"
     t.integer  "stage_id"
     t.string   "type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "prompt_on_deploy", :default => 0
+    t.integer  "prompt_on_deploy",                     :default => 0
     t.datetime "deleted_at"
   end
 
