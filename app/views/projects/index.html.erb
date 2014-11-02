@@ -33,14 +33,18 @@
             <td><%= project.stages.count %></td>
             <td><%= project.deployments.count %></td>
             <td><%= project.created_at.to_s(:date_with_day) %></td>
+            <% if current_user.admin? %>
             <td><%= link_to 'Edit', edit_project_path(project) %></td>
             <td><%= link_to 'Clone', clone_form_path(project) %></td>
             <td><%= link_to 'Delete', project_path(project), :data => { :confirm => 'Are you sure?' }, :method => :delete %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
     </table>
   <% end %>
 
+  <% if current_user.admin? -%>
   <p><%= link_to 'New project', new_project_path, :class => 'arrow_link' %></p>
+  <% end -%>
 </section>

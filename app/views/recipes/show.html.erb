@@ -46,7 +46,9 @@
     <div class="span5">
       <h3>Description</h3>
       <%= simple_format @recipe.description %>
+      <% if current_user.admin? %>
       <%= link_to 'Edit', edit_recipe_path(@recipe), :class => 'arrow_link' %>
+      <% end %>
     </div>
     <div class="span5">
       <h3>Used by stage</h3>

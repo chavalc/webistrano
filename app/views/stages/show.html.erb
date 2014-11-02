@@ -38,28 +38,36 @@
       </table>
 
       <p class="pull-right">
+        <% if current_user.admin? %>
         <%= link_to 'Edit stage', edit_project_stage_path(current_project, @stage) %> |
         <%= link_to 'Delete stage', project_stage_path(current_project, @stage), data: { confirm: 'Are you sure?' }, method: :delete  %> |
         <%= link_to 'Export capfile', { action: 'capfile', project_id: current_project, id: @stage, format: 'text' } %>
+        <% end %>
       </p>
     </div>
 
     <div class="span4">
       <ul class="unstyled">
         <li><%= link_to 'Deploy', new_project_stage_deployment_path(current_project, @stage, task: 'deploy') %></li>
+        <% if current_user.admin? %>
         <li><%= link_to 'Deploy and migrate', new_project_stage_deployment_path(current_project, @stage, task: 'deploy:migrations') %></li>
+        <% end %>
         <li><%= link_to 'Restart app servers', new_project_stage_deployment_path(current_project, @stage, task: 'deploy:restart') %></li>
+        <% if current_user.admin? %>
         <li><%= link_to 'Setup', new_project_stage_deployment_path(current_project, @stage, task: 'deploy:setup') %></li>
         <li><%= select_tag('task', options_for_select(@task_list)) %></li>
+        <% end %>
       </ul>
 
       <p>
+        <% if current_user.admin? %>
         <%= link_to 'Execute',
             new_project_stage_deployment_path(current_project, @stage),
             onclick: "location.href='#{new_project_stage_deployment_path(current_project, @stage)}?task=' + $('#task').val(); return false" %> |
         <%= link_to 'Info',
             tasks_project_stage_path(current_project, @stage),
             onclick: "location.href='#{tasks_project_stage_path(current_project, @stage)}#' + $('#task').val(); return false" %>
+        <% end %>
       </p>
     </div>
   </div>
@@ -72,7 +80,9 @@
     <%= render partial: 'effective_config' %>
   </div>
   <p>
+    <% if current_user.admin? %>
     <%= link_to 'New configuration', new_project_stage_stage_configuration_path(current_project, @stage) %> |
+    <% end %>
     <a id="s_e_c" href="#">Show effective configuration</a>
     <a id="h_e_c" href="#" style="display:none;">Hide effective configuration</a>
   </p>
@@ -81,13 +91,17 @@
 <section>
   <h2>Used recipes</h2>
   <%= render partial: 'recipes' %>
+  <% if current_user.admin? %>
   <%= link_to 'Manage stage recipes', { action: 'recipes', project_id: current_project, id: @stage } %>
+  <% end %>
 </section>
 
 <section>
   <h2>Deployed hosts</h2>
   <%= render partial: 'roles' %>
+  <% if current_user.admin? %>
   <%= link_to 'Add host', new_project_stage_role_path(current_project, @stage) %>
+  <% end %>
 </section>
 
 <section>
