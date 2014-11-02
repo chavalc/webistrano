@@ -4,6 +4,18 @@ GIT
   specs:
     version_fu (1.0.2)
 
+GIT
+  remote: https://github.com/careerlinkvn/capistrano
+  revision: 174f882dfc5a0c9e45211bb0dcf4cf9c84d43bc2
+  branch: master
+  specs:
+    capistrano (2.15.5)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -37,12 +49,6 @@ GEM
     arel (3.0.3)
     bcrypt (3.1.9)
     builder (3.0.4)
-    capistrano (2.15.5)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.1.0)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -291,7 +297,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capistrano (= 2.15.5)
+  capistrano!
   capybara
   coffee-rails
   compass
