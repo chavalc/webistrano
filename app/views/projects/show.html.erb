@@ -60,7 +60,9 @@
 <section>
   <h2>Project configuration</h2>
   <%= render(:partial => 'configs')%>
+  <% if current_user.admin? %>
   <p><%= link_to 'New configuration', new_project_project_configuration_path(@project) %></p>
+  <% end %>
 </section>
 
 <section>
