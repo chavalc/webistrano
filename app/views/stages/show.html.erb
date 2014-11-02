@@ -26,10 +26,12 @@
             <th>Project</th>
             <td><%= link_to @stage.project.name, project_url(current_project) %></td>
           </tr>
+          <% if current_user.admin? %>
           <tr>
             <th>Alert on deploy</th>
             <td><%= @stage.alert_emails %></td>
           </tr>
+          <% end %>
           <tr>
             <th>Hosts</th>
             <td><%= @stage.hosts.count %></td>
