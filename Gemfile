@@ -5,6 +5,7 @@ gem 'rails', '3.2.8'
 gem 'exception_notification', '3.0.1'
 
 gem 'capistrano', :git => 'https://github.com/careerlinkvn/capistrano', :branch => 'master'
+gem 'capistrano-notifier', :git => 'https://github.com/careerlinkvn/capistrano-notifier', :branch => 'master'
 gem 'open4',      '0.9.3'
 gem 'syntax',     '1.0.0'
 gem 'version_fu', :github => 'jmckible/version_fu'

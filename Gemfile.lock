@@ -16,6 +16,16 @@ GIT
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
 
+GIT
+  remote: https://github.com/careerlinkvn/capistrano-notifier
+  revision: da0ae4be5915ecd821a10694b57f7eb323f53d4a
+  branch: master
+  specs:
+    capistrano-notifier (0.4.1)
+      actionmailer
+      activesupport
+      capistrano (>= 2, < 3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -298,6 +308,7 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano!
+  capistrano-notifier!
   capybara
   coffee-rails
   compass
