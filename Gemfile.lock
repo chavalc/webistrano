@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/careerlinkvn/capistrano-notifier
-  revision: cecb52098fe340df2ee9822280a37d2c8a4482d7
+  revision: 26f6c77b8a38d51daaa8b2d3ba44cc990d169b92
   branch: master
   specs:
     capistrano-notifier (0.4.1)
