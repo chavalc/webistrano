@@ -18,7 +18,7 @@ GIT
 
 GIT
   remote: https://github.com/careerlinkvn/capistrano-notifier
-  revision: da0ae4be5915ecd821a10694b57f7eb323f53d4a
+  revision: cecb52098fe340df2ee9822280a37d2c8a4482d7
   branch: master
   specs:
     capistrano-notifier (0.4.1)
@@ -119,7 +119,7 @@ GEM
       railties (>= 3.0.0)
     ffi (1.9.6)
     formatador (0.2.5)
-    guard (2.7.1)
+    guard (2.7.2)
       formatador (>= 0.2.4)
       listen (~> 2.7)
       lumberjack (~> 1.0)
