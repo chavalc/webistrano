@@ -6,7 +6,7 @@ class Host < ActiveRecord::Base
   has_many :activities, :as => :target, :dependent => :destroy
 
   validates :name,
-    :uniqueness => true,
+    :uniqueness => { :scope => [:deleted_at], :if => 'deleted_at.nil?' },
     :presence   => true,
     :length     => { :maximum => 250 }
   validate :guard_valid_hostname_or_ip

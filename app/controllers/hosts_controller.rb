@@ -35,11 +35,9 @@ class HostsController < ApplicationController
   # POST /hosts
   # POST /hosts.xml
   def create
-    @host = Host.unscoped.where(params[:host]).first_or_create
+    @host = Host.new(params[:host])
 
-    if @host
-      @host.tap { |h| h.deleted_at = nil }.save
-
+    if @host.save
       add_activity_for(@host, 'created')
       flash[:notice] = 'Host was successfully created.'
       respond_with(@host, :location => @host)
