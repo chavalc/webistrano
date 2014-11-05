@@ -1,9 +1,11 @@
 class Host < ActiveRecord::Base
   include LogicallyDeletable
 
-  has_many :roles,  :dependent => :destroy, :uniq => true
+  has_many :roles,  :dependent => :destroy, :uniq => true, :inverse_of => :host
   has_many :stages, :through   => :roles,   :uniq => true # XXX uniq does not seem to work! You get all stages, even doubles
   has_many :activities, :as => :target, :dependent => :destroy
+
+  accepts_nested_attributes_for :roles, :allow_destroy => true
 
   validates :name,
     :uniqueness => { :scope => [:deleted_at], :if => 'deleted_at.nil?' },
@@ -11,7 +13,7 @@ class Host < ActiveRecord::Base
     :length     => { :maximum => 250 }
   validate :guard_valid_hostname_or_ip
 
-  attr_accessible :name
+  attr_accessible :name, :roles_attributes
 
   before_validation :strip_whitespace
 

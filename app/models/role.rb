@@ -2,7 +2,7 @@ class Role < ActiveRecord::Base
   include LogicallyDeletable
 
   belongs_to :stage
-  belongs_to :host
+  belongs_to :host, :inverse_of => :roles
   has_and_belongs_to_many :deployments
   has_many :activities, :as => :target, :dependent => :destroy
 
@@ -28,7 +28,7 @@ class Role < ActiveRecord::Base
     :presence  => true,
     :inclusion => { :in => 0..1 }
   
-  attr_accessible :name, :primary, :host_id, :no_release, :no_symlink, :ssh_port, :custom_name, :foreground, :background
+  attr_accessible :name, :primary, :stage_id, :host_id, :no_release, :no_symlink, :ssh_port, :custom_name, :foreground, :background
   
   attr_accessor :custom_name
   
