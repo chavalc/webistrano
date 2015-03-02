@@ -32,7 +32,7 @@ class RolesController < ApplicationController
       :name     => params[:role][:name],
       :host_id  => params[:role][:host_id],
       :stage_id => @stage.id
-    ).first_or_create(params[:role].merge(:stage_id => @stage_id))
+    ).first_or_create(params[:role].merge(:stage_id => @stage.id))
 
     if @role
       @role.tap { |r| r.deleted_at = nil }.save
