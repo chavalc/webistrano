@@ -1,4 +1,4 @@
-<% if @project.configuration_parameters.empty? %>
+<% if @project.configuration_parameters.to_a.empty? %>
   <p>
     No project wide configuration added yet.<br />
     Project configuration is overridden by stage configurations.
