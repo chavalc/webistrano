@@ -14,7 +14,7 @@ gem 'devise-encryptable'
 gem 'haml'
 gem 'therubyracer'
 gem 'puma',  '~> 2.7.1'
-gem 'eventmachine', '1.0.3'
+gem 'eventmachine', '1.0.4'
 
 group :development do
   gem 'sqlite3-ruby', :require => 'sqlite3'
