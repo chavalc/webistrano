@@ -110,7 +110,7 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
-    eventmachine (1.0.3)
+    eventmachine (1.0.4)
     exception_notification (3.0.1)
       actionmailer (>= 3.0.4)
     execjs (2.4.0)
@@ -331,7 +331,7 @@ DEPENDENCIES
   database_cleaner
   devise
   devise-encryptable
-  eventmachine (= 1.0.3)
+  eventmachine (= 1.0.4)
   exception_notification (= 3.0.1)
   factory_girl_rails
   guard
@@ -366,3 +366,6 @@ DEPENDENCIES
   twitter-bootstrap-rails (= 2.2.8)
   unicorn
   version_fu!
+
+BUNDLED WITH
+   1.14.3
